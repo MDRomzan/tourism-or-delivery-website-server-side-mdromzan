@@ -58,7 +58,7 @@ app.delete("/services/:id",async(req,res)=>{
         res.json(result);
         //res.send("posted hitt")
     });
-    // update api service     
+    // update api service   add  
     app.put("/services/:id",async(req,res)=>{
         const id=req.params.id;
         // console.log("updating",req);
