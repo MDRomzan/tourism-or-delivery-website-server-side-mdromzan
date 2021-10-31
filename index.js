@@ -82,9 +82,10 @@ app.delete("/services/:id",async(req,res)=>{
     // Add post order
     app.post("/orders",async(req,res)=>{
         const order=req.body;
-        // console.log("order",order);
+        console.log("order",order);
         const result=await orderCollection.insertOne(order);
-        res.json(result)
+        // res.send("order procees");
+         res.json(result)
     })
 
     } finally {
