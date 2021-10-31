@@ -58,12 +58,12 @@ app.delete("/services/:id",async(req,res)=>{
         res.json(result);
         //res.send("posted hitt")
     });
-    // update user      
+    // update api service     
     app.put("/services/:id",async(req,res)=>{
         const id=req.params.id;
-        // console.log(id);
+        // console.log("updating",req);
         const updateService=req.body;
-        // console.log(updateService);
+        // // console.log(updateService);
         const filter={_id:ObjectId(id)};
         const options ={upsert:true};
         const updateDoc ={
@@ -74,9 +74,10 @@ app.delete("/services/:id",async(req,res)=>{
                 Description: updateService.Description
             },
         };
-        const result=await servicesCollection.updateOne(filter,options,updateDoc);
-        console.log("updateing Service ", req);
+         const result = await servicesCollection.updateOne(filter,updateDoc,options);
+        // console.log("updateing Service ", req);
         res.json(result)
+        // res.send("updating not for dating")
     });
 
     // Add post order
